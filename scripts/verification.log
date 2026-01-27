@@ -1,0 +1,22 @@
+Starting ROBUST UI Verification...
+Navigating to http://localhost:3000...
+Captured home_initial.png
+
+--- Checking Trust Strip ---
+Found Python badge locator.
+Badge Color (Initial): rgb(100, 116, 139)
+Badge Color (Hover): rgb(100, 116, 139)
+Captured trust_strip_hover.png
+
+--- Checking Projects Page Card ---
+Found Project Card.
+Captured project_card_hover.png
+CRITICAL ERROR: locator.evaluate: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.group').first().getByText('View Case Study').first()[22m
+
+locator.evaluate: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.group').first().getByText('View Case Study').first()[22m
+
+    at D:\Work\Portfolio\scripts\verify_ui.cjs:123:47
