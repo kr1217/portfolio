@@ -90,7 +90,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {project.techStack?.slice(0, 4).map((tech) => (
                     <span 
                       key={tech} 
-                      className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getTechBadgeColor(tech)} border border-transparent`}
+                      className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${getTechBadgeColor(tech)}`}
                     >
                       {tech}
                     </span>
