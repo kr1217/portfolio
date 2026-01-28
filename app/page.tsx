@@ -240,7 +240,7 @@ export default async function Home() {
                 ) : (
                      <div className="col-span-2 text-center py-12 bg-muted/20 rounded-3xl border border-dashed border-border">
                          <p className="text-muted-foreground">No reviews yet. Why not submit one?</p>
-                         <Button variant="ghost" href="/contact" className="mt-2 text-primary hover:text-primary/80 hover:bg-transparent p-0 underline-offset-4 hover:underline">Leave a Review</Button>
+                         <Button variant="ghost" href="/reviews" className="mt-2 text-primary hover:text-primary/80 hover:bg-transparent p-0 underline-offset-4 hover:underline">Leave a Review</Button>
                     </div>
                 )}
             </div>
