@@ -34,6 +34,29 @@ export function ProjectCard({ project }: ProjectCardProps) {
           height={400}
           className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
         />
+        
+        {/* Status & Type Badges */}
+        <div className="absolute top-4 left-4 flex gap-2 z-10">
+            {project.status && (
+                <span className={`px-2.5 py-1 rounded-full text-xs font-semibold backdrop-blur-md shadow-sm border ${
+                    project.status === 'Completed' ? 'bg-emerald-500/90 text-white border-emerald-400/50' :
+                    project.status === 'In Progress' ? 'bg-amber-500/90 text-white border-amber-400/50' :
+                    'bg-slate-500/90 text-white border-slate-400/50'
+                }`}>
+                    {project.status}
+                </span>
+            )}
+            {project.type && (
+                 <span className={`px-2.5 py-1 rounded-full text-xs font-semibold backdrop-blur-md shadow-sm border ${
+                    project.type === 'Client' ? 'bg-blue-500/90 text-white border-blue-400/50' :
+                    project.type === 'Open Source' ? 'bg-orange-500/90 text-white border-orange-400/50' :
+                    'bg-purple-500/90 text-white border-purple-400/50'
+                }`}>
+                    {project.type}
+                </span>
+            )}
+        </div>
+
         {/* Overlay - Always dark, so button should be light for contrast */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
              <div className="bg-white text-black rounded-full px-6 py-3 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

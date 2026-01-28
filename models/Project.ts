@@ -14,6 +14,8 @@ export interface IProjectData {
   liveDemoUrl?: string;
   videoUrl?: string;
   featured: boolean;
+  status: 'Completed' | 'In Progress' | 'Maintenance' | 'Archived';
+  type: 'Personal' | 'Client' | 'Open Source';
   createdAt: string | Date;
 }
 
@@ -30,6 +32,8 @@ export interface IProject extends Document {
   liveDemoUrl?: string;
   videoUrl?: string;
   featured: boolean;
+  status: 'Completed' | 'In Progress' | 'Maintenance' | 'Archived';
+  type: 'Personal' | 'Client' | 'Open Source';
   createdAt: Date;
 }
 
@@ -76,6 +80,16 @@ const ProjectSchema: Schema = new Schema({
   featured: {
     type: Boolean,
     default: false,
+  },
+  status: {
+    type: String,
+    enum: ['Completed', 'In Progress', 'Maintenance', 'Archived'],
+    default: 'Completed',
+  },
+  type: {
+    type: String,
+    enum: ['Personal', 'Client', 'Open Source'],
+    default: 'Personal',
   },
   createdAt: {
     type: Date,

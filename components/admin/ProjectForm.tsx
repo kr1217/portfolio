@@ -27,6 +27,8 @@ export function ProjectForm({ initialData, mode }: ProjectFormProps) {
     liveDemoUrl: initialData?.liveDemoUrl || '',
     videoUrl: initialData?.videoUrl || '',
     featured: initialData?.featured || false,
+    status: initialData?.status || 'Completed',
+    type: initialData?.type || 'Personal',
   });
 
   useEffect(() => {
@@ -44,6 +46,8 @@ export function ProjectForm({ initialData, mode }: ProjectFormProps) {
             liveDemoUrl: initialData.liveDemoUrl || '',
             videoUrl: initialData.videoUrl || '',
             featured: initialData.featured || false,
+            status: initialData.status || 'Completed',
+            type: initialData.type || 'Personal',
         });
     }
   }, [initialData]);
@@ -120,6 +124,37 @@ export function ProjectForm({ initialData, mode }: ProjectFormProps) {
                     Featured Project
                 </label>
              </div>
+          </div>
+
+          <div>
+            <label htmlFor="status" className="block text-sm font-medium text-foreground">Status</label>
+            <select
+                id="status"
+                name="status"
+                value={formData.status}
+                onChange={handleChange}
+                className="mt-1 block w-full rounded-md border-input bg-background text-foreground shadow-sm focus:border-primary focus:ring-primary sm:text-sm border p-2"
+            >
+                <option value="Completed">Completed</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Archived">Archived</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="type" className="block text-sm font-medium text-foreground">Project Type</label>
+            <select
+                id="type"
+                name="type"
+                value={formData.type}
+                onChange={handleChange}
+                className="mt-1 block w-full rounded-md border-input bg-background text-foreground shadow-sm focus:border-primary focus:ring-primary sm:text-sm border p-2"
+            >
+                <option value="Personal">Personal</option>
+                <option value="Client">Client</option>
+                <option value="Open Source">Open Source</option>
+            </select>
           </div>
 
           <div className="sm:col-span-2">
