@@ -6,6 +6,8 @@ import connectToDatabase from '@/lib/db';
 import Link from 'next/link';
 import { getTechBadgeColor } from '@/lib/techColors';
 
+export const revalidate = 0;
+
 async function getFeaturedProjects() {
   await connectToDatabase();
   // Using lean() for better performance as we just need plain objects
