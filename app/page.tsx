@@ -12,7 +12,7 @@ async function getFeaturedProjects() {
   await connectToDatabase();
   // Using lean() for better performance as we just need plain objects
   try {
-    const projects = await Project.find({ featured: true }).sort({ createdAt: -1 }).limit(3).lean();
+    const projects = await Project.find({ featured: true }).sort({ createdAt: -1 }).limit(4).lean();
     // Convert _id and dates to string/number for serialization if strictly needed, 
     // but Next.js 14 handles simple objects well. Mongoose documents need serialization.
     return JSON.parse(JSON.stringify(projects));
