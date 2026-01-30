@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import { Github, ExternalLink, ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { ProjectGallery } from '@/components/ProjectGallery';
 
 // Generate metadata for the page
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -127,24 +128,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
 
         {/* Image Gallery Section */}
-        {project.images && project.images.length > 0 && (
-          <div className="mt-16 sm:mt-24">
-            <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl mb-8">Project Gallery</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {project.images.map((image, index) => (
-                <div key={index} className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-border aspect-[16/9] bg-muted">
-                   <Image 
-                     src={image} 
-                     alt={`${project.title} screenshot ${index + 1}`} 
-                     width={800} 
-                     height={600} 
-                     className="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105"
-                   />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        <ProjectGallery images={project.images} title={project.title} />
       </Container>
     </div>
   );
