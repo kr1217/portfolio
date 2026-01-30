@@ -26,6 +26,12 @@ const ResumeSchema = new mongoose.Schema({
   },
   experience: [ExperienceSchema],
   education: [EducationSchema],
+  projects: [{
+    title: String,
+    description: String,
+    techStack: [String],
+    link: String, // slug or external link
+  }],
   skills: [String],
 }, { timestamps: true });
 

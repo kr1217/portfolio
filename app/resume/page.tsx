@@ -90,6 +90,33 @@ export default async function ResumePage() {
                         ))}
                     </div>
                 </section>
+
+                {/* Projects Section (Auto-Synced) */}
+                {resume.projects && resume.projects.length > 0 && (
+                <section>
+                    <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3 uppercase tracking-wider border-b-2 border-slate-200 pb-2">
+                        <span className="text-blue-700">Recent Projects</span>
+                    </h2>
+                    <div className="space-y-6">
+                        {resume.projects.slice(0, 3).map((proj: any, i: number) => (
+                            <div key={i} className="relative pl-6 border-l-2 border-slate-200 last:border-0 pb-2">
+                                <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm" />
+                                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                                    <h3 className="text-lg font-bold text-slate-900">{proj.title}</h3>
+                                </div>
+                                <div className="text-slate-600 mb-2 leading-snug">{proj.description}</div>
+                                <div className="flex flex-wrap gap-1">
+                                    {proj.techStack?.map((tech: string, t: number) => (
+                                        <span key={t} className="text-xs font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-md border border-indigo-100 print-exact">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+                )}
             </div>
 
             {/* Side Column: Skills & Education */}
