@@ -69,8 +69,19 @@ export default function AboutPage() {
             </div>
           </div>
           
-          <div className="mt-16">
-             <Button href="/contact" size="lg">Get in Touch</Button>
+          <div className="mt-16 bg-primary/5 rounded-3xl p-8 border border-primary/20">
+            <h3 className="text-2xl font-bold text-foreground mb-4">Freelance Services</h3>
+            <p className="text-muted-foreground mb-6">
+              I offer professional MERN Stack development services on Fiverr, specializing in building modern, scalable, and high-performance web applications. Whether you need a full-scale platform or a specific feature enhancement, I am here to help.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button href="http://www.fiverr.com/s/AyADNL3" size="lg" className="rounded-full shadow-lg hover:shadow-primary/20 transition-all">
+                Hire me on Fiverr
+              </Button>
+              <Button href="/contact" variant="outline" size="lg" className="rounded-full">
+                Get in Touch
+              </Button>
+            </div>
           </div>
         </div>
       </Container>

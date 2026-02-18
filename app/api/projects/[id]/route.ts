@@ -33,6 +33,20 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     revalidatePath(`/projects/${project.slug}`);
     revalidatePath('/admin');
     revalidatePath('/');
+
+    // --- Auto-Sync to Resume ---
+    try {
+        const { syncProjectToResume } = await import('@/lib/resume-sync');
+        await syncProjectToResume({
+            title: project.title,
+            description: project.description,
+            techStack: project.techStack,
+            slug: project.slug
+        });
+    } catch (syncError) {
+        console.error('[Auto-Sync] Failed to update resume during project update:', syncError);
+    }
+    // ---------------------------
     
     return NextResponse.json(project);
   } catch (error) {
